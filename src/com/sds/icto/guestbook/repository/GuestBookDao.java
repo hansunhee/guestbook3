@@ -1,4 +1,4 @@
-package com.sds.icto.guestbook.dao;
+package com.sds.icto.guestbook.repository;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -11,7 +11,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.sds.icto.guestbook.vo.GuestBookVo;
+import com.sds.icto.guestbook.domain.GuestBookVo;
+import com.sds.icto.guestbook.exception.GuestBookException;
 
 @Repository
 public class GuestBookDao {
@@ -32,10 +33,8 @@ public class GuestBookDao {
 			stmt.executeUpdate();
 			if(stmt!=null) stmt.close();
 			if(conn!=null) conn.close();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new GuestBookException(e.getMessage());
 		}
 	}
 	public void delete(Long no){
@@ -47,10 +46,8 @@ public class GuestBookDao {
 			stmt.executeUpdate();
 			if(stmt!=null) stmt.close();
 			if(conn!=null) conn.close();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new GuestBookException(e.getMessage());
 		}
 	}
 	public GuestBookVo selectOne(Long no){
@@ -71,10 +68,8 @@ public class GuestBookDao {
 			if(rs!=null) rs.close();
 			if(stmt!=null) stmt.close();
 			if(conn!=null) conn.close();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new GuestBookException(e.getMessage());
 		}
 		return vo;
 	}
@@ -96,10 +91,8 @@ public class GuestBookDao {
 			if(rs!=null) rs.close();
 			if(stmt!=null) stmt.close();
 			if(conn!=null) conn.close();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new GuestBookException(e.getMessage());
 		}
 		return list;
 	}

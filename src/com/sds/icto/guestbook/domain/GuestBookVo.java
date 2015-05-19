@@ -1,4 +1,4 @@
-package com.sds.icto.guestbook.vo;
+package com.sds.icto.guestbook.domain;
 
 import java.sql.Date;
 
@@ -54,6 +54,11 @@ public class GuestBookVo {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	@Override
+	public String toString() {
+		return "GuestBookVo [no=" + no + ", name=" + name + ", password="
+				+ password + ", message=" + message + ", date=" + date + "]";
 	}
 	
 }

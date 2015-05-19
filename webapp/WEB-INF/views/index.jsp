@@ -29,7 +29,7 @@
 			<td>${status.index +1 }</td>
 			<td>${vo.name }</td>
 			<td>${vo.date }</td>
-			<td><a href="/guestbook3/deleteform&no=${vo.no }">삭제</a></td>
+			<td><a href="/guestbook3/delete?no=${vo.no }">삭제</a></td>
 		</tr>
 		<tr>
 			<td colspan=4>${vo.message }</td>
