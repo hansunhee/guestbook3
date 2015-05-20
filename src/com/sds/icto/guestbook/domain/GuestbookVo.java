@@ -2,21 +2,21 @@ package com.sds.icto.guestbook.domain;
 
 import java.sql.Date;
 
-public class GuestBookVo {
+public class GuestbookVo {
 	private long no;
 	private String name;
 	private String password;
 	private String message;
 	private Date date;
-	public GuestBookVo() {
+	public GuestbookVo() {
 	}
-	public GuestBookVo(String name, String password, String message) {
+	public GuestbookVo(String name, String password, String message) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.message = message;
 	}
-	public GuestBookVo(long no, String name, String password, String message,
+	public GuestbookVo(long no, String name, String password, String message,
 			Date date) {
 		super();
 		this.no = no;

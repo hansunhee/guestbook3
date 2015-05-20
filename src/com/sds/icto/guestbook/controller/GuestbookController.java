@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sds.icto.guestbook.domain.GuestBookVo;
-import com.sds.icto.guestbook.service.GuestBookService;
+import com.sds.icto.guestbook.domain.GuestbookVo;
+import com.sds.icto.guestbook.service.GuestbookService;
 
 @Controller
-public class GuestBookController {
+public class GuestbookController {
 	
 	@Autowired
-	GuestBookService guestBookService;
+	GuestbookService guestbookService;
 	
 	@RequestMapping("/index")
 	public String index(Model model){
-		List<GuestBookVo> list=guestBookService.selectList();
+		List<GuestbookVo> list=guestbookService.selectList();
 		model.addAttribute("list", list);
 		return "index";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String add(@ModelAttribute GuestBookVo vo){
-		guestBookService.add(vo);
+	public String add(@ModelAttribute GuestbookVo vo){
+		guestbookService.add(vo);
 		return "redirect:/index";
 	}
 	
@@ -40,7 +40,7 @@ public class GuestBookController {
 	
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public String delete(@RequestParam Long no, @RequestParam String password, Model model){
-		GuestBookVo vo=guestBookService.selectOne(no);
+		GuestbookVo vo=guestbookService.selectOne(no);
 		System.out.println(vo);
 		System.out.println(password);
 		System.out.println(no);
@@ -49,7 +49,7 @@ public class GuestBookController {
 			model.addAttribute("no", no);
 			return "deleteform";
 		}
-		guestBookService.delete(no);			
+		guestbookService.delete(no);			
 		return "redirect:/index";
 	}
 }
